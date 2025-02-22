@@ -45,5 +45,15 @@ public class GreetingController {
        }
     }
 
+    @DeleteMapping("/delete/{id}")
+    public boolean DeleteGreeting(@PathVariable long id) {
+            if(greetingServices.findById(id) == null) {
+                return false;
+            }else {
+                greetingServices.deleteById(id);
+                return true;
+            }
+    }
+
 }
 
